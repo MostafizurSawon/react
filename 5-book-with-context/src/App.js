@@ -5,7 +5,7 @@ import BookList from './components/BookList';
 import BooksContext from './context/books';
 
 function App() {
-  const { fetchBooks } = useContext(BooksContext);
+  const { fetchBooks,books } = useContext(BooksContext);
 
   useEffect(() => {
     fetchBooks();
@@ -14,6 +14,7 @@ function App() {
   return (
       <div className="App">
         <BookCreate />
+        <h1 className="book-length">Total Books: {books.length}</h1>
         <BookList />
       </div>
   );

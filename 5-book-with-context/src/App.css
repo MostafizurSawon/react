@@ -1,5 +1,5 @@
 body{
-  background-color: rgb(8, 192, 186);
+  background-color: whitesmoke;
 }
 
 .App {
@@ -7,8 +7,8 @@ body{
   display: grid;
   justify-content: center;
 
-  margin: 3rem auto;
-  
+  margin: 0 auto;
+  margin-bottom: 50px;
 }
 
 .App-logo {
@@ -49,9 +49,21 @@ body{
 
 .book-create{
   /* text-align: left; */
-  width: 90vw;
+  /* width: 90vw; */
   display: flex;
   justify-content: center;
+  /* position: relative; */
+  /* margin-bottom: -300px; */
+}
+
+.main-input{
+  position: fixed;
+  background-color: #199d9d;
+  width: 100%;
+  bottom: 0%;
+  display: grid;
+  justify-content: center;
+  padding: 20px 0;
 }
 
 .input{
@@ -71,24 +83,47 @@ body{
   border: none;
   border-radius: 10px;
   font-size: 1rem;
+  background-color: #199d9d;
+  color: white;
+}
+.button-create{
+  padding: 14px 25px;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  background-color: white;
+  /* color: white; */
+  
+}
+
+.button-create:hover{
+  cursor: pointer;
+  color: green;
 }
 
 .button:hover{
-  color: green;
+  color: rgb(231, 243, 70);
   cursor: pointer;
 }
 
 .book-length{
   text-align: center;
-  color: white;
+  color: #199d9d;
   font-weight: 800;
 }
 
+.title{
+  color: white;
+  font-weight: 800;
+  text-shadow: 0 1px 5px gray;
+}
+
 .book-parent{
-  margin: 20px 0;
+  /* margin: 20px 0; */
+  margin-bottom: 250px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
+  gap: 2rem;
 }
 
 .show-books{
