@@ -1,13 +1,26 @@
-# Getting Started with Create React App
+# About 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a small project where user can create new books. Then It will show on the home page. I implemented json server with CRUD operations here. 
+
+## TECHS
+
+- React
+- Hooks (useState, useEffect, useContext)
+- custom Hooks
+- Axios
+- Async Awaits
+- Backend JSON server
+- CRUD operations
+<!-- This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). -->
+
 
 ## Available Scripts
 
 In the project directory, you can run:
 ### `npm install json-server`
-### `npm start`
-### `npm run server`
+
+### `npm start` (Start React)
+### `npm run server`  (Start Server)
 
 
 Runs the app in the development mode.\

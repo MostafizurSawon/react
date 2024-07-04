@@ -2,27 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
-import BooksContext from './context/books';
-// import reportWebVitals from './reportWebVitals';
-
-// const root = ReactDOM.createRoot(document.getElementById('root'));
-// root.render(
-//   <React.StrictMode>
-//     <App />
-//   </React.StrictMode>
-// );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-// reportWebVitals();
+import { Provider } from './context/books';
 
 const el = document.getElementById('root');
 const root = ReactDOM.createRoot(el);
 
 root.render(
-  <BooksContext.Provider value={5}>
+  <Provider>
     <App />
-  </BooksContext.Provider>
-  
+  </Provider>
 )
