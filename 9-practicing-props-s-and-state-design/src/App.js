@@ -16,7 +16,10 @@ function App() {
 
   return (
     <div className="App m-4">
-      <center>
+      <center className='flex'>
+        <Dropdown value={selection} onChange={handleSelect} options={options} />
+        <Dropdown value={selection} onChange={handleSelect} options={options} />
+        <Dropdown value={selection} onChange={handleSelect} options={options} />
         <Dropdown value={selection} onChange={handleSelect} options={options} />
       </center>
     </div>
