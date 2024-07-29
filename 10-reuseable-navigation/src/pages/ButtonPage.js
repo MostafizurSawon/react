@@ -1,11 +1,11 @@
-import './App.css';
-import Button from './components/Button';
+import '../App.css';
+import Button from '../components/Button';
 import { GoBell, GoDatabase } from 'react-icons/go';
 
 
 function App() {
   const handleClick = () =>{
-    console.log('clicked!')
+    // console.log('clicked!')
   }
 
   return (
