@@ -5,7 +5,6 @@ import Panel from '../components/Panel';
 const INCREMENT_COUNT = 'increment';
 const SET_VALUE_TO_ADD = 'change_value_to_add';
 
-
 const reducer = (state, action) => {
   if(action.type === INCREMENT_COUNT)
   {
