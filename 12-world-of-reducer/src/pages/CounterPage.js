@@ -1,34 +1,56 @@
+import { produce } from 'immer';
 import Button from '../components/Button';
 import { useState, useReducer } from 'react';
 import Panel from '../components/Panel';
 
 const INCREMENT_COUNT = 'increment';
 const SET_VALUE_TO_ADD = 'change_value_to_add';
+const DECREMENT_COUNT = 'decrement';
+const ADD_VALUE_TO_COUNT = 'add_value_to_count';
 
 const reducer = (state, action) => {
-  if(action.type === INCREMENT_COUNT)
-  {
-    return {
-      ...state,
-      count: state.count+1,
-    };
-  }
-  
-  if(action.type === SET_VALUE_TO_ADD)
-  {
-    return {
-      ...state,
-      valueToAdd: action.payload,
-    };
+
+  switch(action.type) {
+    case INCREMENT_COUNT:
+      state.count = state.count + 1;
+      return; 
+    case DECREMENT_COUNT:
+      state.count = state.count - 1;
+      return;  
+    case ADD_VALUE_TO_COUNT:
+      state.count = state.count + state.valueToAdd;
+      state.valueToAdd = 0;
+      return;   
+    case SET_VALUE_TO_ADD:
+      state.valueToAdd = action.payload;
+      return; 
+    default:
+      return;
   }
 
-  return state;
+  // if(action.type === INCREMENT_COUNT)
+  // {
+  //   return {
+  //     ...state,
+  //     count: state.count+1,
+  //   };
+  // }
+  
+  // if(action.type === SET_VALUE_TO_ADD)
+  // {
+  //   return {
+  //     ...state,
+  //     valueToAdd: action.payload,
+  //   };
+  // }
+
+  // return state;
 };
 
 function CounterPage({initialCount}) {
 //  const [count,setCount] = useState(initialCount);
 //  const [valueToAdd, setValueToAdd] = useState(0);
-const [state, dispatch] = useReducer(reducer, {
+const [state, dispatch] = useReducer(produce(reducer), {
   count: initialCount,
   valueToAdd: 0
 });
@@ -43,6 +65,9 @@ dispatch({
 };
 const decrement = () => {
 // setCount(count-1);
+  dispatch({
+    type: DECREMENT_COUNT,
+  });
 };
 const handleChange = (event) => {
 // event.target.value;
@@ -56,9 +81,12 @@ dispatch({
 };
 
 const handleSubmit = (event) =>{
-event.preventDefault();
-// setCount(count+valueToAdd);
-// setValueToAdd(0);
+  event.preventDefault();
+  // setCount(count+valueToAdd);
+  // setValueToAdd(0);
+  dispatch({
+    type: ADD_VALUE_TO_COUNT,
+  });
 }
 
   return (
@@ -79,3 +107,54 @@ event.preventDefault();
 }
 
 export default CounterPage
+
+
+// npm install immer
+
+
+// const reducer = (state, action) => {
+
+//   switch(action.type) {
+//     case INCREMENT_COUNT:
+//       return {
+//         ...state,
+//         count: state.count+1,
+//       };  
+//     case DECREMENT_COUNT:
+//       return {
+//         ...state,
+//         count: state.count-1,
+//       };  
+//     case ADD_VALUE_TO_COUNT:
+//       return {
+//         ...state,
+//         count: state.count+ state.valueToAdd,
+//         valueToAdd: 0
+//       };  
+//     case SET_VALUE_TO_ADD:
+//       return {
+//         ...state,
+//         valueToAdd: action.payload,
+//       };
+//     default:
+//       return state;
+//   }
+
+  // if(action.type === INCREMENT_COUNT)
+  // {
+  //   return {
+  //     ...state,
+  //     count: state.count+1,
+  //   };
+  // }
+  
+  // if(action.type === SET_VALUE_TO_ADD)
+  // {
+  //   return {
+  //     ...state,
+  //     valueToAdd: action.payload,
+  //   };
+  // }
+
+  // return state;
+// };
