@@ -6,10 +6,10 @@ import CarValue from './components/CarValue';
 
 function App() {
   return (
-    <div className="">
+    <div className="container is-fluid">
     <CarForm />
-    <CarList />
     <CarSearch />
+    <CarList />
     <CarValue />
       {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
