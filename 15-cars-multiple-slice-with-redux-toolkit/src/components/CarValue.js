@@ -1,6 +1,31 @@
+import { useSelector } from "react-redux";
+
+
 
 function CarValue(){
-  return <div className="container">Car Value</div>;
+  const totalCost = useSelector(({ cars: { data, searchTerm }})=>
+    data.filter((car)=>car.name.toLowerCase().includes(searchTerm.toLowerCase())).reduce((acc,car)=>acc+car.cost,0)
+  );
+
+  // const totalCost = useSelector(({cars: { data, searchTerm }}) => {
+
+    // const filteredCars = data.filter((car)=>{
+    //   return car.name.toLowerCase().includes(searchTerm.toLowerCase());
+    // });
+
+    // let cost = 0;
+    // for( let car of filteredCars){
+    //   cost += car.cost;
+    // }
+    // return cost;
+    
+    // return filteredCars.reduce((acc, car) => {
+    //   return acc + car.cost;
+    // },0);
+  // });
+  return <div className="car-value p-3 has-text-right subtitle">
+    Total Cost: ${totalCost}
+  </div>;
 }
 
 export default CarValue;
